@@ -12,7 +12,7 @@ Inclua o arquivo efetivo.php e informe as chaves geradas através do painel de g
 ```php
 <?php
 
-include('efetivo.php');
+require_once('efetivo.php');
 
 $ev = new Efetivo;
 $ev->setApiKey('Sua chave API-KEY');
@@ -25,7 +25,7 @@ $ev->setSecret('Sua chave API-SECRET');
 ```php
 <?php
 
-include('efetivo.php');
+require_once('efetivo.php');
 
 $ev = new Efetivo;
 $ev->setApiKey('Sua chave API-KEY');
@@ -38,7 +38,7 @@ $parametros['order'] = 'alpha_asc';
 $parametros['format'] = 'json';
 $vagas_lista = $ev->getPositions($parametros);
 
-$var_dump = $vagas_lista;
+var_dump($vagas_lista);
 
 ```
 
@@ -48,7 +48,7 @@ $var_dump = $vagas_lista;
 ```php
 <?php
 
-include('efetivo.php');
+require_once('efetivo.php');
 
 $ev = new Efetivo;
 $ev->setApiKey('Sua chave API-KEY');
@@ -60,7 +60,7 @@ $parametros['details'] = 'false';
 $parametros['format'] = 'xml';
 $vaga = $ev->getPosition($parametros);
 
-$var_dump = $vaga;
+var_dump($vaga);
 
 ```
 
