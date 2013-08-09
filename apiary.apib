@@ -2,9 +2,13 @@ HOST: http://api.empregosevagas.com.br/
 
 --- API empregos e vagas V1.0 ---
 ---
-Bem vindo. A API 1.0 implementa apenas dois métodos nesta fase: Listar vagas e detalhes das vagas.
+Bem vindo.
+
+A API 1.0 implementa apenas dois métodos nesta fase: Listar vagas e detalhes das vagas.
+
 Com o suporte destas duas ações, uma empresa não precisa se preocupar com o desenvolvimento de uma ferramenta proprietária para listar suas vagas em suas apps/intranets ou websites.
-O cadastro e gerenciamento de vagas, deve ser feito através do painel de gestão de empresas (http://empregosevagas.com.br/empresas/painel). Lá existem ferramentas adequadas para a gestão de vagas e seus candidatos, por isso no momento ainda não suportamos o cadastro de vagas via API, mas isto está previsto para o futuro, porém, sem previsão ainda.
+
+O cadastro e gerenciamento de vagas, deve ser feito através do painel de gestão de empresas (http://empregosevagas.com.br/empresas/painel). Lá existem ferramentas adequadas para a gestão de vagas e seus candidatos, por isso no momento ainda não suportamos o cadastro de vagas via API, mas isto não tem previsão ainda.
 
 ---
 
@@ -12,11 +16,11 @@ O cadastro e gerenciamento de vagas, deve ser feito através do painel de gestã
 Listar vagas
 --
 Lista as vagas cadastradas pela empresa, com suporte para status, limites, etc; 
-GET /list_positions
+GET /list_positions{status, order, limit, format}
 < 200
 < Content-Type: application/json
 { "items": [
-{ "vaga_id": "0473196F7744EDFB606", "titulo":"2ZY48XPZ", "quantity": 1, "URL": "vagas/2ZY48XPZ", "vaga_quantidade": 1, "vaga_status": "aberta" }
+{ "vaga_id": "0473196F7744EDFB606", "titulo":"2ZY48XPZ", "URL": "vagas/2ZY48XPZ", "vaga_quantidade": 1, "vaga_status": "aberta" }
 ] }
 
 
@@ -28,10 +32,3 @@ POST /shopping-cart
 < Content-Type: application/json
 { "status": "created", "url": "/shopping-cart/2" }
 
-
--- Payment Resources --
-This resource allows you to submit payment information to process your *shopping cart* items
-POST /payment
-{ "cc": "12345678900", "cvc": "123", "expiry": "0112" }
-< 200
-{ "receipt": "/payment/receipt/1" }
