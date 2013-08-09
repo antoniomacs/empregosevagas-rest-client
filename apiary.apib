@@ -2,7 +2,7 @@ HOST: http://api.empregosevagas.com.br/
 
 --- API empregos e vagas V1.0 ---
 ---
-Bem vindo.
+# Bem vindo.
 
 A API 1.0 implementa apenas dois métodos nesta fase: Listar vagas e detalhes das vagas.
 
@@ -10,13 +10,57 @@ Com o suporte destas duas ações, uma empresa não precisa se preocupar com o d
 
 O cadastro e gerenciamento de vagas, deve ser feito através do painel de gestão de empresas (http://empregosevagas.com.br/empresas/painel). Lá existem ferramentas adequadas para a gestão de vagas e seus candidatos, por isso no momento ainda não suportamos o cadastro de vagas via API, mas isto não tem previsão ainda.
 
+### Sobre esta documentação
+
+Todo exemplo documentado aqui tem carater ilustrativo. A documentação da API não compreende suporte técnico ou ajuda por parte do time empregosevagas.com.br; Caso necessite de suporte, você pode entrar em contato conosco para verificar a disponibilidade de um suporte remunerado.
+
+### Termos de uso
+
+Ao utilizar esta API você concorda com nossos termos de uso. Você pode ler o documento [aqui](http://empregosevagas.com.br/termos "Política de privacidade"). 
+
+### Autenticação
+
+A API empregosevagas usa autenthicação *"two legged"*. Para realizar qualquer request, você precisa gerar um **SID** *(single identification)* com os parâmetros de sua *query* e enviar junto com sua chave-pública *(public key)* e demais parâmetros.
+
+O algorítimo criptográfico usado para gerar a sua SID é a SHA256. Um exemplo em PHP seria:
+
+    $SID = hash_hmac('sha256', http_build_query($params), $privateKey);    
+A ordem dos parâmetros não importa, porém para gerar resultados você deve encaminhar *requests* usando o formato:
+
+    http://api.empregosevagas.com.br/m/__nome_do_metodo__/{parâmetros}/sid/123456/key/123456
+Onde **m/__nome_do_metodo__** corresponde a:
+
+    m  // parâmetro obrigatório para utilização de métodos GET
+    __nome_do_metodo__ // nome do método disponível através da API   
+### Codificação
+
+A API retorna apenas resultados codificados em UTF-8.
+
+## Exemplo de request
+
+Uma URL válida para o *request* de dados de uma vaga:
+
+    api.empregosevagas.com.br/m/view_position/details/false/format/xml/guid/12345/key/12345/sid/12345
+> ## Parâmetros obrigatórios
+
+> 1. **key** - Sua chave pública
+> 2. **sid** - Sua chave privada criptografada em sha256 em conjunto com os parâmetros de busca (sem "key")
+
+> ## Tipos de retorno
+> O parâmetro format pode ser definido como:
+
+> 1. **json** - Retorna os resultados de seu *request* em JSON
+> 2. **xml** - Retorna os resultados em XML UTF-8
+
+
 ---
 
 --
 Listar vagas
 --
 Lista as vagas cadastradas pela empresa, com suporte para status, limites, etc; 
-GET /list_positions{status, order, limit, format}
+GET /list_positions/{status, order, limit, format}
+> Content-Type: application/json
 < 200
 < Content-Type: application/json
 { "items": [
