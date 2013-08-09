@@ -60,7 +60,7 @@ Listar vagas
 --
 Lista as vagas cadastradas pela empresa, com suporte para status, limites, etc;
 
-GET /m/list_positions/{status, order, limit, format}
+GET /m/list_positions/ {/status, order, limit, format}
 > Content-Type: application/json
 < 200
 < Content-Type: application/json
@@ -69,8 +69,13 @@ GET /m/list_positions/{status, order, limit, format}
 ] }
 
 
-Save new products in your shopping cart
-POST /shopping-cart
+ 
+--
+Detalhes de vaga
+--
+Lista as vagas cadastradas 
+
+GET /shopping-cart
 > Content-Type: application/json
 { "product":"1AB23ORM", "quantity": 2 }
 < 201
