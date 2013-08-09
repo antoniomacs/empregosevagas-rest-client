@@ -3,11 +3,11 @@
 
 ## Informações básicas
 
-Cria um simples cliente para acessar vagas de uma empresa no www.empregosevagas.com.br
+Cria um simples cliente para acessar vagas de sua empresa no www.empregosevagas.com.br
 
 ## Instalação
 
-Faça o include do arquivo efetivo_client.php e informe as chaves geradas através do painel de gestão de empresas.
+Inclua o arquivo efetivo.php e informe as chaves geradas através do painel de gestão de empresas.
 
 ```php
 <?php
@@ -67,6 +67,6 @@ $var_dump = $vaga;
 
 ## Documentação
 
-Para informações sobre parâmetros e métodos disponíveis na API do empregosevagas.com.br visite: http://api.empregosevagas.com.br/docs/
+Informações sobre parâmetros e métodos disponíveis na API disponíveis em: http://api.empregosevagas.com.br/docs/
 
 
