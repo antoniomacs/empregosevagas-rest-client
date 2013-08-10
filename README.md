@@ -38,7 +38,7 @@ $parametros['order'] = 'alpha_asc';
 $parametros['format'] = 'json';
 $vagas_lista = $ev->getPositions($parametros);
 
-var_dump($vagas_lista);
+echo $vagas_lista;
 
 ```
 
@@ -56,11 +56,11 @@ $ev->setSecret('Sua chave API-SECRET');
 
 $parametros = array();
 $parametros['guid'] = 'INFORME vaga_id';
-$parametros['details'] = 'false';
+$parametros['details'] = 'no';
 $parametros['format'] = 'xml';
 $vaga = $ev->getPosition($parametros);
 
-var_dump($vaga);
+echo $vaga;
 
 ```
 
