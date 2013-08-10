@@ -10,9 +10,9 @@ $ev->setSecret('_SUA_CHAVE_SECRETA_');
 
 $parametros = array();
 $parametros['status'] = 'all';
-$parametros['limit'] = '10';
+$parametros['limit'] = '5';
 $parametros['order'] = 'alpha_asc';
-$parametros['format'] = 'xml';
+$parametros['format'] = 'json';
 $vagas_lista = $ev->getPositions($parametros);
 
 
@@ -24,12 +24,8 @@ $parametros['guid'] = '__UMA_ID_DE_VAGA__';
 $parametros['details'] = 'false';
 $parametros['format'] = 'xml';
 $vaga = $ev->getPosition($parametros);
+echo $vaga;
 */
 
-
-/*
-echo '<pre>'.var_dump($vaga).'</pre>';
-echo '<pre>'.var_dump($vagas_lista).'</pre>';
-*/
 
 ?>
