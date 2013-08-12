@@ -1,9 +1,9 @@
-# PHP API client empregosevagas.com.br
+# PHP API REST client EFETIVO - empregosevagas.com.br
 
 
 ## Informações básicas
 
-Cria um simples cliente para acessar vagas de sua empresa no www.empregosevagas.com.br
+Cria um cliente REST para acessar vagas de uma empresa cadastradas no www.empregosevagas.com.br
 
 ## Instalação
 
