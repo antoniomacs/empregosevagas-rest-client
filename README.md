@@ -1,4 +1,4 @@
-## PHP API REST client EFETIVO - empregosevagas.com.br
+## PHP API REST client EFETIVO - Empregos e vagas
 
 
 ## Informações básicas
